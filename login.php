@@ -1,4 +1,34 @@
-<?php include __DIR__ . "/src/views/partials/header.php"; ?>
+<?php
+    include "functions.php";
+    include __DIR__ . "/src/views/partials/header.php";
+
+    $the_message = "";
+
+    if (isset($_POST['submit'])) {
+        // echo "Form is working";
+        $username = trim($_POST['username']);
+        $password = trim($_POST['password']);
+
+        $user_found = User::verify_user($username, $password);
+
+        if ($user_found) {
+            $session->login($user_found);
+            redirect("/");
+        } else {
+            $the_message = "Credentials Incorrect.";
+        }
+    } else {
+        $username = "";
+        $password = "";
+    }
+
+    echo $the_message ?? '';
+
+    if ($session->is_signed_in()) {
+        redirect("/");
+    }
+?>
+
 
 
 <div class="login-block">
