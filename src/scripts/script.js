@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const togglePassword = document.querySelector("#togglePassword");
-    const password = document.querySelector("#password");
+    const togglePassword = document.getElementById("togglePassword");
+    const password = document.getElementById("password");
 
     togglePassword.addEventListener("click", function () {
         // toggle the type attribute
@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
         password.setAttribute("type", type);
         
         // toggle the icon
-        this.classList.toggle("bi-eye");
-    });
-
-    // prevent form submit
-    const form = document.querySelector("form");
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
+        if (this.classList.contains("bi-eye-slash")) {
+            this.classList.remove("bi-eye-slash");
+            this.classList.add("bi-eye");
+        } else {
+            this.classList.add("bi-eye-slash");
+            this.classList.remove("bi-eye");
+        }
     });
 });
