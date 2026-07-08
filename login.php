@@ -22,8 +22,6 @@
         $password = "";
     }
 
-    echo $the_message ?? '';
-
     if ($session->is_signed_in()) {
         redirect("/");
     }
@@ -48,6 +46,7 @@
         <div class="text-cont">
             <h1>Welcome Back to MWS</h1>
             <p>Please enter your login details below</p>
+            <?= $the_message ? "<p style=\"color: #DC143C; font-weight: bold;\">{$the_message}</p>" : ''; ?>
         </div>
 
         <div class="sign-links-cont">
@@ -58,12 +57,12 @@
         <form action="" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" name="username" placeholder="Username">
+                <input <?= $the_message ? "style=\"border:solid 1px #DC143C;\"" : ''; ?> type="text" name="username" placeholder="Username">
             </div>
 
             <div class="form-group password-group">
                 <label for="password">Password</label>
-                <input id="password" type="password" name="password" placeholder="* * * * * * * * * * * * * * * * *">
+                <input <?= $the_message ? "style=\"border:solid 1px #DC143C;\"" : ''; ?> id="password" type="password" name="password" placeholder="* * * * * * * * * * * * * * * * *">
                 <i class="bi bi-eye-slash" id="togglePassword"></i>
             </div>
 
