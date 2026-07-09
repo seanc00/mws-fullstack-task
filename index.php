@@ -7,8 +7,11 @@ if (!$session->is_signed_in()) {
 }
 
 // Get signed in username
-$user = User::find_user_by_id($_SESSION['user_id']);
+$user = User::find_by_id($_SESSION['user_id']);
 $users_name = $user[0]->name;
+
+$files = Upload::find_all();
+var_dump($files);
 ?>
 
 <div class="dashboard-block">

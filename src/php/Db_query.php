@@ -34,4 +34,14 @@ class Db_query {
 
         return array_key_exists($attribute, $objectProperties);
     }
+
+
+        public static function find_all() {
+        return self::find_this_query("SELECT * FROM " . static::$db_table);
+    }
+
+
+    public static function find_by_id($id) {
+        return self::find_this_query("SELECT * FROM " . static::$db_table . " WHERE id={$id} LIMIT 1");
+    }
 }
