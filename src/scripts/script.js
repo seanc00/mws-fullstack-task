@@ -22,16 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Mobile Dropdown Functionality
-    const mobileDashboardBtn = document.querySelector('.mobile-dropdown-cont > .dashboard-btn');
-    const mobileMenu = document.querySelector('.mobile-dropdown-cont');
-
-    mobileDashboardBtn.addEventListener("click", function() {
-        // console.log("Dashboard btn clicked");
-
-        if (mobileMenu.classList.contains('closed')) {
-            mobileMenu.classList.remove('closed');
-        } else if (!mobileMenu.classList.contains('closed')) {
-            mobileMenu.classList.add('closed');
-        }
-    });
+    if (document.querySelector('.mobile-dropdown-cont > .dashboard-btn') && document.querySelector('.mobile-dropdown-cont')) {
+        const mobileDashboardBtn = document.querySelector('.mobile-dropdown-cont > .dashboard-btn');
+        const mobileMenu = document.querySelector('.mobile-dropdown-cont');
+    
+        mobileDashboardBtn.addEventListener("click", function() {
+            // console.log("Dashboard btn clicked");
+    
+            if (mobileMenu.classList.contains('closed')) {
+                mobileMenu.classList.remove('closed');
+            } else if (!mobileMenu.classList.contains('closed')) {
+                mobileMenu.classList.add('closed');
+            }
+        });
+    }
 });

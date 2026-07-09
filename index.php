@@ -114,7 +114,7 @@ $files = Upload::find_all();
                 </div>
             </div>
         </div>
-        <div class="mobile-dropdown-cont">
+        <div class="mobile-dropdown-cont closed">
             <div class="dashboard-btn">
                 <svg viewBox="0 0 21 21" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <rect width="9" height="9" rx="1.73913"/>
