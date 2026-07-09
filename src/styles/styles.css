@@ -1,14 +1,13 @@
 body {
   padding: 0;
   margin: 0;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 @media screen and (min-width: 768px) {
   body {
     overflow: unset;
     height: unset;
-    overflow-x: hidden;
   }
 }
 body * {
@@ -235,7 +234,7 @@ body .login-block .form-cont form .form-group .submit-btn {
   font-weight: 700;
   text-align: center;
   width: 100%;
-  padding: 12px 91px;
+  padding: 12px 20px;
   border-radius: 42px;
   background-color: #0266FF;
   color: #fff;
@@ -390,6 +389,133 @@ body .login-block img.bg-img {
   body .login-block img.bg-img {
     display: none;
   }
+}
+body .dashboard-block .navigation-bar .nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 16px 16px 16px;
+}
+body .dashboard-block .navigation-bar .nav-wrapper .logo-cont {
+  width: 97px;
+  height: 34px;
+  position: relative;
+}
+body .dashboard-block .navigation-bar .nav-wrapper .logo-cont img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+body .dashboard-block .navigation-bar .nav-wrapper .menu-items .desktop-main-links {
+  display: none;
+}
+body .dashboard-block .navigation-bar .nav-wrapper .menu-items .setting-links .title {
+  display: none;
+}
+body .dashboard-block .navigation-bar .nav-wrapper .menu-items .setting-links .link-wrapper {
+  display: flex;
+  gap: 8px;
+}
+body .dashboard-block .navigation-bar .nav-wrapper .menu-items .setting-links .link-wrapper a {
+  display: flex;
+}
+body .dashboard-block .navigation-bar .nav-wrapper .menu-items .setting-links .link-wrapper a.secondary-btn {
+  padding: 12px;
+  border-radius: 50%;
+  background-color: #E6F1FF;
+}
+body .dashboard-block .navigation-bar .nav-wrapper .menu-items .setting-links .link-wrapper a.secondary-btn p {
+  display: none;
+}
+body .dashboard-block .navigation-bar .nav-wrapper .menu-items .setting-links .link-wrapper a.secondary-btn svg {
+  width: 16px;
+  height: 16px;
+  color: #0266FF;
+}
+body .dashboard-block .navigation-bar .nav-wrapper .menu-items .setting-links .link-wrapper a.primary-btn {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 42px;
+  background-color: #0266FF;
+  color: #fff;
+  transition: 0.3s;
+}
+@media screen and (min-width: 768px) {
+  body .dashboard-block .navigation-bar .nav-wrapper .menu-items .setting-links .link-wrapper a.primary-btn {
+    padding: 16px 91px;
+    font-size: 15px;
+  }
+}
+body .dashboard-block .navigation-bar .nav-wrapper .menu-items .setting-links .link-wrapper a.primary-btn:hover {
+  background-color: #0252CD;
+}
+body .dashboard-block .navigation-bar .nav-wrapper .menu-items .setting-links .link-wrapper a.primary-btn svg {
+  width: 10px;
+  height: 10px;
+}
+body .dashboard-block .mobile-dropdown-cont {
+  position: relative;
+}
+body .dashboard-block .mobile-dropdown-cont .dashboard-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0266FF;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 0;
+  background-color: #F4F5F4;
+  cursor: pointer;
+}
+body .dashboard-block .mobile-dropdown-cont .dashboard-btn svg {
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+body .dashboard-block .mobile-dropdown-cont .dropdown {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F4F5F4;
+  border-top: #D7D8DD solid 1px;
+  position: absolute;
+  width: 100%;
+  transition: 0.3s;
+  opacity: 1;
+}
+body .dashboard-block .mobile-dropdown-cont .dropdown .dropdown-link-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 12px 0;
+}
+body .dashboard-block .mobile-dropdown-cont .dropdown .dropdown-link-wrapper a {
+  display: flex;
+  gap: 10px;
+  color: #0266FF;
+}
+body .dashboard-block .mobile-dropdown-cont .dropdown .dropdown-link-wrapper a svg {
+  width: 16px;
+  height: 16px;
+}
+body .dashboard-block .mobile-dropdown-cont.closed .dashboard-btn svg.toggle-chevron {
+  transition: 0.3s;
+  transform: rotate(0deg);
+}
+body .dashboard-block .mobile-dropdown-cont.closed .dropdown {
+  transition: 0.3s;
+  opacity: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
