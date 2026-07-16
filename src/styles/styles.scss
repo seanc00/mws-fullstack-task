@@ -410,6 +410,9 @@ body {
         display: flex;
         flex-direction: column;
         gap: 26px;
+        @media screen and (min-width: 1200px) {
+            flex-direction: row;
+        }
 
         .navigation-bar {
             .nav-wrapper {
@@ -436,6 +439,9 @@ body {
                 .menu-items {
                     .desktop-main-links {
                         display: none;
+                        @media screen and (min-width: 1200px) {
+                            display: block;
+                        }
                     }
 
                     .setting-links {
@@ -485,6 +491,9 @@ body {
 
             .mobile-dropdown-cont {
                 position: relative;
+                @media screen and (min-width: 1200px) {
+                    display: none;
+                }
     
                 .dashboard-btn {
                     display: flex;
@@ -496,7 +505,7 @@ body {
                     padding: 16px 0;
                     background-color: #F4F5F4;
                     cursor: pointer;
-    
+
                     svg {
                         width: 16px;
                         height: 16px;
@@ -504,7 +513,7 @@ body {
                         transition: .3s;
                     }
                 } // dashboard-btn
-    
+
                 .dropdown {
                     display: flex;
                     justify-content: center;
@@ -516,18 +525,18 @@ body {
                     width: 100%;
                     transition: .3s;
                     opacity: 1;
-    
+
                     .dropdown-link-wrapper {
                         display: flex;
                         flex-direction: column;
                         gap: 16px;
                         padding: 12px 0;
-    
+
                         a {
                             display: flex;
                             gap: 10px;
                             color: $accent-color;
-    
+
                             svg {
                                 width: 16px;
                                 height: 16px;
@@ -535,7 +544,7 @@ body {
                         }
                     }
                 }
-    
+
                 &.closed {
                     .dashboard-btn {
                         svg.toggle-chevron {
