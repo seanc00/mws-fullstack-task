@@ -3,6 +3,8 @@
 // ------------------
 $accent-color: #0266FF;
 $grey-text-color: #3f3f3f;
+$grey: #4D616E;
+$bg-grey: #F4F5F4;
 
 // Breakpoints
 $tablet: 768px;
@@ -25,6 +27,26 @@ $desktop: 1200px;
     transition: .3s;
     @media screen and (min-width: $tablet) {
         padding: 16px 91px;
+        font-size: 15px;
+    }
+
+    &:hover {
+        background-color: #0252CD;
+    }
+}
+
+@mixin dashboard-btn($width: 100%) {
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    width: $width;
+    padding: 12px 20px;
+    border-radius: 42px;
+    background-color: $accent-color;
+    color: #fff;
+    transition: .3s;
+    @media screen and (min-width: $tablet) {
+        padding: 16px 27px;
         font-size: 15px;
     }
 
@@ -220,7 +242,6 @@ body {
             form {
                 display: flex;
                 flex-direction: column;
-                // gap: 14px;
                 @media screen and (min-width: $tablet) {
                     max-width: 377px;
                     margin: 0 auto 0 auto;
@@ -410,21 +431,39 @@ body {
         display: flex;
         flex-direction: column;
         gap: 26px;
-        @media screen and (min-width: 1200px) {
+        @media screen and (min-width: $desktop) {
             flex-direction: row;
+            gap: 0;
+            max-width: 1512px;
         }
 
         .navigation-bar {
+            border-right: solid 1px #00000026;
+
             .nav-wrapper {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 padding: 15px 16px 16px 16px;
+                @media screen and (min-width: $desktop) {
+                    width: 336px;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 59px;
+                    padding:42px 38px 38px 38px;
+                    min-height: 100vh;
+                    max-height: 100vh;
+                    justify-content: flex-start;
+                }
 
                 .logo-cont {
                     width: 97px;
                     height: 34px;
                     position: relative;
+                    @media screen and (min-width: $desktop) {
+                        width: 150px;
+                        height: 52px;
+                    }
 
                     img {
                         position: absolute;
@@ -437,38 +476,134 @@ body {
                 }
 
                 .menu-items {
+                    @media screen and (min-width: $desktop) {
+                        width: 100%;
+                            max-height: none;
+                            gap: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            height: 168px;
+                    }
+
                     .desktop-main-links {
                         display: none;
-                        @media screen and (min-width: 1200px) {
+                        @media screen and (min-width: $desktop) {
                             display: block;
                         }
+
+                        .title {
+                            @media screen and (min-width: $desktop) {
+                                margin-bottom: 14px;
+                            }
+
+                            p {
+                                @media screen and (min-width: $desktop) {
+                                    color: $grey;
+                                    font-size: 15px;
+                                }
+                            }
+                        }
+
+                        .links-wrapper {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 12px;
+
+                            a.link {
+                                @media screen and (min-width: $desktop) {
+                                    display: flex;
+                                    gap: 18px;
+                                    align-items: center;
+                                    justify-content: flex-start;
+                                    padding: 16px 20px;
+                                    border-radius: 42px;
+                                    font-size: 15px;
+                                    font-weight: 600;
+                                    color: $grey-text-color;
+                                }
+
+                                &.active {
+                                    background-color: $bg-grey;
+                                    color: $accent-color;
+                                }
+
+                                svg {
+                                    @media screen and (min-width: $desktop) {
+                                        width: 20px;
+                                        height: auto;
+                                    }
+                                }
+                            }
+                        }
+
+
                     }
 
                     .setting-links {
+                        @media screen and (min-width: $desktop) {
+                            position: absolute;
+                            bottom: 38px;
+                            left: 38px;
+                            width: 260px;
+                        }
+
                         .title {
                             display: none;
+                            @media screen and (min-width: $desktop) {
+                                display: block;
+                                color: $grey;
+                                font-size: 15px;
+                                margin-bottom: 14px;
+                            }
                         }
 
                         .link-wrapper {
                             display: flex;
                             gap: 8px;
+                            @media screen and (min-width: $desktop) {
+                                flex-direction: column;
+                                gap: 12px;
+                            }
 
                             a {
                                 display: flex;
+                                @media screen and (min-width: $desktop) {
+                                    font-size: 15px;
+                                    justify-content: space-between;
+                                    font-weight: 600;
+                                }
 
                                 &.secondary-btn {
                                     padding: 12px;
                                     border-radius: 50%;
                                     background-color: #E6F1FF;
+                                    @media screen and (min-width: $tablet) and (max-width: $desktop) {
+                                        justify-content: center;
+                                        align-items: center;
+                                        padding: 17px;
+                                    }
+                                    @media screen and (min-width: $desktop) {
+                                        border-radius: 42px;
+                                        padding: 16px 20px;
+                                        color: $accent-color;
+                                    }
 
                                     p {
                                         display: none;
+                                        @media screen and (min-width: $desktop) {
+                                            display: block;
+                                        }
                                     }
 
                                     svg {
                                         width: 16px;
                                         height: 16px;
                                         color: $accent-color;
+                                        @media screen and (min-width: $desktop) {
+                                            width: 20px;
+                                            height: 20px;
+                                        }
                                     }
                                 }
 
@@ -476,11 +611,18 @@ body {
                                     display: flex;
                                     gap: 14px;
                                     align-items: center;
-                                    @include btn();
+                                    @include dashboard-btn();
+                                    @media screen and (min-width: $desktop) {
+                                        padding: 16px 20px;
+                                    }
 
                                     svg {
                                         width: 10px;
                                         height: 10px;
+                                        @media screen and (min-width: $desktop) {
+                                            width: 20px;
+                                            height: 20px;
+                                        }
                                     }
                                 }
                             }
@@ -491,10 +633,10 @@ body {
 
             .mobile-dropdown-cont {
                 position: relative;
-                @media screen and (min-width: 1200px) {
+                @media screen and (min-width: $desktop) {
                     display: none;
                 }
-    
+
                 .dashboard-btn {
                     display: flex;
                     justify-content: center;
@@ -553,26 +695,247 @@ body {
                         }
                     }
                     .dropdown {
-                        // display: none;
                         transition: .3s;
                         opacity: 0;
+                        pointer-events: none;
                     }
                 }
             } // mobile-dropdown-cont
         } // navigation-bar
 
         .page-content {
-            .welcome-block {
+            @media screen and (min-width: $desktop) {
+                width: 100%;
+                padding: 51px 38px 18px 50px;
+                max-width: 1164px;
+            }
+
+            section.welcome-block {
                 padding: 0 15px 20px 15px;
+                @media screen and (min-width: $desktop) {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 0 36px 0;
+                }
 
                 .text-cont {
                     h1 {
                         font-size: 20px;
                         font-weight: 600;
                         color: $grey-text-color;
+                        margin-bottom: 7px;
+                        @media screen and (min-width: $desktop) {
+                            font-size: 30px;
+                            margin-bottom: 12px;
+                        }
+                    }
+
+                    p {
+                        color: $grey;
+                        font-size: 14px;
+                        margin-bottom: 16px;
+                        @media screen and (min-width: $desktop) {
+                            margin: 0;
+                            font-size: 15px;
+                        }
+                    }
+                } // text-cont
+
+                .btn-cont {
+                    
+                    a {
+                        display: flex;
+                        max-width: fit-content;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 14px;
+                        font-weight: 700;
+                        font-size: 13px;
+                        @include dashboard-btn();
+                        @media screen and (min-width: $desktop) {
+                            font-size: 15px;
+                        }
+
+                        svg {
+                            width: 10px;
+                            height: 10px;
+                            @media screen and (min-width: $desktop) {
+                                width: 12px;
+                                height: 12px;
+                            }
+                        }
+                    }
+                }
+            } // section.welcome-block
+
+            section.file-uploads {
+                max-width: 1076px;
+                max-height: 366px;
+                overflow: auto;
+                margin-bottom: 30px;
+
+                table {
+                    border-spacing: 0 6px;
+
+                    thead {
+                        tr {
+                            th {
+                                font-size: 15px;
+                                color: $grey-text-color;
+                                font-weight: 600;
+                                padding-bottom: 17px;
+
+                                &.file-num-title, &.file-name, &.uploaded-by {
+                                    text-align: left;
+                                }
+
+                                &.upload-date {
+                                    text-align: center;
+                                }
+
+                                &.uploaded-by {
+                                    padding-left: 36px;
+                                }
+                            }
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            overflow: hidden;
+                            td {
+                                background-color: #F2F3F8;
+                                padding: 19px 24px;
+
+                                &.file-num-value {
+                                    border-radius: 4px 0 0 4px;
+                                    width: 110px;
+                                    min-width: 110px;
+                                }
+
+                                &.file-name-value {
+                                    width: 532px;
+                                    min-width: 532px;
+                                    border-left: solid 1px #0000001C;
+                                    border-right: solid 1px #0000001C;
+                                }
+
+                                &.upload-date-value {
+                                    border-right: solid 1px #0000001C;
+                                    width: 160px;
+                                    min-width: 160px;
+                                }
+
+                                &.uploaded-by {
+                                    width: 216px;
+                                    min-width: 216px;
+                                }
+
+                                &.download {
+                                    max-width: 58px;
+                                    max-height: 56px;
+                                    background-color: $accent-color;
+                                    border-radius: 0 4px 4px 0;
+
+                                    a {
+                                        svg {
+                                            width: 14px;
+                                            height: 14px;
+                                            color: #fff;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } // section.file-uploads
+
+            section.history {
+                max-width: 1076px;
+                overflow: auto;
+                padding: 26px 34px 28px 30px;
+                background-color: $bg-grey;
+                border-radius: 4px;
+
+                .top {
+                    margin-bottom: 18px;
+
+                    .title-cont {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 12px;
+                        font-size: 24px;
+                        font-weight: 600;
+                        color: $grey-text-color;
+                        margin-bottom: 12px;
+
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+
+                    .subtitle p {
+                        font-size: 15px;
+                        color: $grey;
+                    }
+                }
+
+                .bottom {
+                    max-width: 978px;
+                    max-height: 230px;
+                    overflow: auto;
+
+                    table {
+                        border-spacing: 0 6px;
+                        tr {
+                            td {
+                                padding: 14px 20px;
+
+                                &.date-value {
+                                    background-color: #DAE5F9;
+                                    border-radius: 4px 0 0 4px;
+                                    color: $accent-color;
+                                    font-size: 15px;
+                                    font-weight: 500;
+                                }
+
+                                &.history-item {
+                                    background-color: #fff;
+                                    border-radius: 0 4px 4px 0;
+                                    display: flex;
+                                    gap: 20px;
+                                    align-items: center;
+                                    justify-content: flex-start;
+                                    width: 857px;
+
+                                    .user-cont {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 14px;
+
+                                        img {
+                                            width: 22px;
+                                            height: 22px;
+                                            border-radius: 50%;
+                                            border: solid 1px $accent-color;
+                                        }
+                                    }
+
+                                    .log-cont {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 4px;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
-        }
+        } // page-content
     } // dashboard-block
 } // body

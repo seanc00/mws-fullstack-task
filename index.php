@@ -166,7 +166,7 @@ $files = Upload::find_all();
         </div>
     </div>
     <div class="page-content">
-        <div class="welcome-block">
+        <section class="welcome-block">
             <div class="text-cont">
                 <h1>Welcome Back <?= $users_name ?? ''; ?></h1>
                 <p>Manage & download your documents below</p>
@@ -174,14 +174,287 @@ $files = Upload::find_all();
             <div class="btn-cont">
                 <a href="#">
                     Upload File
-                    <svg viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13 9V11.6667C13 12.0203 12.8595 12.3594 12.6095 12.6095C12.3594 12.8595 12.0203 13 11.6667 13H2.33333C1.97971 13 1.64057 12.8595 1.39052 12.6095C1.14048 12.3594 1 12.0203 1 11.6667V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M10.3333 4.33333L6.99996 1L3.66663 4.33333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M7 1V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
             </div>
-        </div>
+        </section>
+
+        <section class="file-uploads">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="file-num-title">File No.</th>
+                        <th class="file-name">File Name</th>
+                        <th class="upload-date">Upload Date</th>
+                        <th class="uploaded-by">Uploaded By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="file-num-value">00215#</td>
+                        <td class="file-name-value">Report for steel mill job</td>
+                        <td class="upload-date-value">10/02/2026</td>
+                        <td class="uploaded-by">Joe Bloggs</td>
+                        <td class="download">
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 10.3335V13.4446C15 13.8572 14.8361 14.2528 14.5444 14.5446C14.2527 14.8363 13.857 15.0002 13.4444 15.0002H2.55556C2.143 15.0002 1.74733 14.8363 1.45561 14.5446C1.16389 14.2528 1 13.8572 1 13.4446V10.3335" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.11111 6.44434L8 10.3332L11.8889 6.44434" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 10.3333V1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="file-num-value">00215#</td>
+                        <td class="file-name-value">Report for steel mill job</td>
+                        <td class="upload-date-value">10/02/2026</td>
+                        <td class="uploaded-by">Joe Bloggs</td>
+                        <td class="download">
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 10.3335V13.4446C15 13.8572 14.8361 14.2528 14.5444 14.5446C14.2527 14.8363 13.857 15.0002 13.4444 15.0002H2.55556C2.143 15.0002 1.74733 14.8363 1.45561 14.5446C1.16389 14.2528 1 13.8572 1 13.4446V10.3335" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.11111 6.44434L8 10.3332L11.8889 6.44434" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 10.3333V1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="file-num-value">00215#</td>
+                        <td class="file-name-value">Report for steel mill job</td>
+                        <td class="upload-date-value">10/02/2026</td>
+                        <td class="uploaded-by">Joe Bloggs</td>
+                        <td class="download">
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 10.3335V13.4446C15 13.8572 14.8361 14.2528 14.5444 14.5446C14.2527 14.8363 13.857 15.0002 13.4444 15.0002H2.55556C2.143 15.0002 1.74733 14.8363 1.45561 14.5446C1.16389 14.2528 1 13.8572 1 13.4446V10.3335" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.11111 6.44434L8 10.3332L11.8889 6.44434" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 10.3333V1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="file-num-value">00215#</td>
+                        <td class="file-name-value">Report for steel mill job</td>
+                        <td class="upload-date-value">10/02/2026</td>
+                        <td class="uploaded-by">Joe Bloggs</td>
+                        <td class="download">
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 10.3335V13.4446C15 13.8572 14.8361 14.2528 14.5444 14.5446C14.2527 14.8363 13.857 15.0002 13.4444 15.0002H2.55556C2.143 15.0002 1.74733 14.8363 1.45561 14.5446C1.16389 14.2528 1 13.8572 1 13.4446V10.3335" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.11111 6.44434L8 10.3332L11.8889 6.44434" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 10.3333V1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="file-num-value">00215#</td>
+                        <td class="file-name-value">Report for steel mill job</td>
+                        <td class="upload-date-value">10/02/2026</td>
+                        <td class="uploaded-by">Joe Bloggs</td>
+                        <td class="download">
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 10.3335V13.4446C15 13.8572 14.8361 14.2528 14.5444 14.5446C14.2527 14.8363 13.857 15.0002 13.4444 15.0002H2.55556C2.143 15.0002 1.74733 14.8363 1.45561 14.5446C1.16389 14.2528 1 13.8572 1 13.4446V10.3335" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.11111 6.44434L8 10.3332L11.8889 6.44434" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 10.3333V1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="file-num-value">00215#</td>
+                        <td class="file-name-value">Report for steel mill job</td>
+                        <td class="upload-date-value">10/02/2026</td>
+                        <td class="uploaded-by">Joe Bloggs</td>
+                        <td class="download">
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 10.3335V13.4446C15 13.8572 14.8361 14.2528 14.5444 14.5446C14.2527 14.8363 13.857 15.0002 13.4444 15.0002H2.55556C2.143 15.0002 1.74733 14.8363 1.45561 14.5446C1.16389 14.2528 1 13.8572 1 13.4446V10.3335" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.11111 6.44434L8 10.3332L11.8889 6.44434" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 10.3333V1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="file-num-value">00215#</td>
+                        <td class="file-name-value">Report for steel mill job</td>
+                        <td class="upload-date-value">10/02/2026</td>
+                        <td class="uploaded-by">Joe Bloggs</td>
+                        <td class="download">
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 10.3335V13.4446C15 13.8572 14.8361 14.2528 14.5444 14.5446C14.2527 14.8363 13.857 15.0002 13.4444 15.0002H2.55556C2.143 15.0002 1.74733 14.8363 1.45561 14.5446C1.16389 14.2528 1 13.8572 1 13.4446V10.3335" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.11111 6.44434L8 10.3332L11.8889 6.44434" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 10.3333V1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </section>
+
+        <section class="history">
+            <div class="top">
+                <p class="title-cont">
+                    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 5V11L15 13" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    History
+                </p>
+
+                <div class="subtitle">
+                    <p>History of files downloaded and uploaded by users</p>
+                </div>
+            </div>
+
+            <div class="bottom">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="date-value">10/02/2026</td>
+                            <td class="history-item">
+                                <div class="user-cont">
+                                    <img src="resources/profile-pictures/pp.png">
+                                    <div class="name">Sean Connolly</div>
+                                </div>
+                                <div class="log-cont">
+                                    <p class="action">Downloaded file</p>
+                                    <a class="file" href="#">"Link to a file"</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-value">10/02/2026</td>
+                            <td class="history-item">
+                                <div class="user-cont">
+                                    <img src="resources/profile-pictures/pp.png">
+                                    <div class="name">Sean Connolly</div>
+                                </div>
+                                <div class="log-cont">
+                                    <p class="action">Downloaded file</p>
+                                    <a class="file" href="#">"Link to a file"</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-value">10/02/2026</td>
+                            <td class="history-item">
+                                <div class="user-cont">
+                                    <img src="resources/profile-pictures/pp.png">
+                                    <div class="name">Sean Connolly</div>
+                                </div>
+                                <div class="log-cont">
+                                    <p class="action">Downloaded file</p>
+                                    <a class="file" href="#">"Link to a file"</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-value">10/02/2026</td>
+                            <td class="history-item">
+                                <div class="user-cont">
+                                    <img src="resources/profile-pictures/pp.png">
+                                    <div class="name">Sean Connolly</div>
+                                </div>
+                                <div class="log-cont">
+                                    <p class="action">Downloaded file</p>
+                                    <a class="file" href="#">"Link to a file"</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-value">10/02/2026</td>
+                            <td class="history-item">
+                                <div class="user-cont">
+                                    <img src="resources/profile-pictures/pp.png">
+                                    <div class="name">Sean Connolly</div>
+                                </div>
+                                <div class="log-cont">
+                                    <p class="action">Downloaded file</p>
+                                    <a class="file" href="#">"Link to a file"</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-value">10/02/2026</td>
+                            <td class="history-item">
+                                <div class="user-cont">
+                                    <img src="resources/profile-pictures/pp.png">
+                                    <div class="name">Sean Connolly</div>
+                                </div>
+                                <div class="log-cont">
+                                    <p class="action">Downloaded file</p>
+                                    <a class="file" href="#">"Link to a file"</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-value">10/02/2026</td>
+                            <td class="history-item">
+                                <div class="user-cont">
+                                    <img src="resources/profile-pictures/pp.png">
+                                    <div class="name">Sean Connolly</div>
+                                </div>
+                                <div class="log-cont">
+                                    <p class="action">Downloaded file</p>
+                                    <a class="file" href="#">"Link to a file"</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-value">10/02/2026</td>
+                            <td class="history-item">
+                                <div class="user-cont">
+                                    <img src="resources/profile-pictures/pp.png">
+                                    <div class="name">Sean Connolly</div>
+                                </div>
+                                <div class="log-cont">
+                                    <p class="action">Downloaded file</p>
+                                    <a class="file" href="#">"Link to a file"</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-value">10/02/2026</td>
+                            <td class="history-item">
+                                <div class="user-cont">
+                                    <img src="resources/profile-pictures/pp.png">
+                                    <div class="name">Sean Connolly</div>
+                                </div>
+                                <div class="log-cont">
+                                    <p class="action">Downloaded file</p>
+                                    <a class="file" href="#">"Link to a file"</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-value">10/02/2026</td>
+                            <td class="history-item">
+                                <div class="user-cont">
+                                    <img src="resources/profile-pictures/pp.png">
+                                    <div class="name">Sean Connolly</div>
+                                </div>
+                                <div class="log-cont">
+                                    <p class="action">Downloaded file</p>
+                                    <a class="file" href="#">"Link to a file"</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>   
+            </div>
+        </section>
     </div>
 </div>
 
