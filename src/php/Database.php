@@ -11,9 +11,7 @@ class Database {
 
         if($this->connection->connect_errno) {
             die("Database connection failed." . $this->connection->connect_error);
-        } // else if ($this->connection) {
-        //     echo "DB Connection Successful";
-        // }
+        }
     }
 
 

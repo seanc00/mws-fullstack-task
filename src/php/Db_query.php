@@ -44,4 +44,32 @@ class Db_query {
     public static function find_by_id($id) {
         return self::find_this_query("SELECT * FROM " . static::$db_table . " WHERE id={$id} LIMIT 1");
     }
+
+    
+    protected function properties() {
+        $properties = [];
+
+        foreach (static::$db_table_fields as $db_field) {
+            if (property_exists($this, $db_field)) {
+                $properties[$db_field] = $this->$db_field;
+            }
+        }
+
+        return $properties;
+    }
+
+
+    public function create() {
+        global $database;
+
+        $properties = $this->properties();
+
+        $sql = "INSERT INTO " . static::$db_table . " (";
+        $sql .= implode(", ", array_keys($properties));
+        $sql .= ") VALUES ('";
+        $sql .= implode("', '", array_values($properties));
+        $sql .= "')";
+
+        return $database->query($sql);
+    }
 }

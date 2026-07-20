@@ -9,4 +9,14 @@ class Upload extends Db_query {
     public $user_id;
     public $file_path;
     public $filename;
+    public $type;
+
+    protected static $db_table_fields = [
+        "name_of_file",
+        "filename",
+        "file_path",
+        "user_id",
+        "upload_date",
+        "type"
+    ];
 }

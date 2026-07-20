@@ -12,6 +12,53 @@ $users_name = $user[0]->name;
 
 // Get files
 $files = Upload::find_all();
+
+// Upload files
+$success = "";
+if(isset($_POST['submit'])) {
+    $uploadErrors = array(
+        UPLOAD_ERR_OK => "There is no error",
+        UPLOAD_ERR_INI_SIZE => "The uploaded file exceeds the upload_max_filesize directive in php.ini",
+        UPLOAD_ERR_FORM_SIZE => "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML f...",
+        UPLOAD_ERR_PARTIAL => "The uploaded file was only partially uploaded.",
+        UPLOAD_ERR_NO_FILE => "No file was uploaded.",
+        UPLOAD_ERR_NO_TMP_DIR => "Missing a temporary folder.",
+        UPLOAD_ERR_CANT_WRITE => "Failed to write file to disk.",
+        UPLOAD_ERR_EXTENSION => "A PHP extension stopped the file upload.",
+    );
+
+    $tempName = $_FILES['add_document']['tmp_name'];
+    $theFile = $_FILES['add_document']['name'];
+    $directory = "resources/uploads";
+
+    // append data to files db
+    $upload = new Upload();
+    $upload->name_of_file = $_POST['document_name'];
+    $upload->filename = $theFile;
+    $upload->file_path = "resources/uploads/" . $theFile;
+    $upload->user_id = $_SESSION['user_id'];
+    $upload->upload_date = date("d/m/Y");
+    $upload->type = substr($theFile, strpos($theFile, ".") + 1);
+    $upload->create();
+    
+    // append data to history
+    $history_log_item = new History();
+    $history_log_item->date = date("d/m/Y");
+    $history_log_item->user_id = $_SESSION['user_id'];
+    $history_log_item->action = "Uploaded file";
+    $history_log_item->filename = $_POST['document_name'];
+    $history_log_item->type = substr($theFile, strpos($theFile, ".") + 1);
+    $history_log_item->create();
+
+    // error logging
+    if(move_uploaded_file($tempName, $directory . "/" . $theFile)) {
+        $success = true;
+        unset($_FILES);
+    } else {
+        $theError = $_FILES['add_document']['error'];
+        $theMessage = $uploadErrors[$theError];
+    }
+}
 ?>
 
 <div class="dashboard-block">
@@ -196,7 +243,15 @@ $files = Upload::find_all();
                             </div>
                         </div>
 
-                        <form action="">
+                        <?php 
+                            if(!empty($theMessage)) {
+                                echo "<h2>{$theMessage}</h2>";
+                            } else if($success) {
+                                echo "<h2>File uploaded successfully</h2>";
+                            }
+                        ?>
+
+                        <form action="index.php" method="post" enctype="multipart/form-data">
                             <div class="form-group upload-file">
                                 <label for="add_document">Select Document</label>
                                 <input id="add_document" type="file" name="add_document" placeholder="Add Document">
@@ -235,7 +290,7 @@ $files = Upload::find_all();
                             <td class="upload-date-value"><?= $file->upload_date ?? ''; ?></td>
                             <td class="uploaded-by"><?= $nameOfUploadedUser ?? ''; ?></td>
                             <td class="download">
-                                <a href="<?= $file->file_path ?? ''; ?>" download="<?= $file->filename ?? ''; ?>">
+                                <a href="<?= "src/php/download.php?id=" . $file->id; ?>" download="<?= $file->filename ?? ''; ?>">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M15 10.3335V13.4446C15 13.8572 14.8361 14.2528 14.5444 14.5446C14.2527 14.8363 13.857 15.0002 13.4444 15.0002H2.55556C2.143 15.0002 1.74733 14.8363 1.45561 14.5446C1.16389 14.2528 1 13.8572 1 13.4446V10.3335" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M4.11111 6.44434L8 10.3332L11.8889 6.44434" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -283,7 +338,7 @@ $files = Upload::find_all();
                                     </div>
                                     <div class="log-cont">
                                         <p class="action"><?= $log_item->action ?? ''; ?></p>
-                                        <a class="file" href="/resources/uploads/<?= $log_item->filename ?? ''; ?>" target="_blank">"<?= $log_item->filename ?? ''; ?>"</a>
+                                        <a class="file" href="/resources/uploads/<?= $log_item->filename && $log_item->type ? $log_item->filename : ''; ?>" target="_blank">"<?= $log_item->filename ?? ''; ?>"</a>
                                     </div>
                                 </td>
                             </tr>
