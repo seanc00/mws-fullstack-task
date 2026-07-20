@@ -12,8 +12,6 @@ $users_name = $user[0]->name;
 
 // Get files
 $files = Upload::find_all();
-
-var_dump($files);
 ?>
 
 <div class="dashboard-block">
@@ -227,21 +225,26 @@ var_dump($files);
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="file-num-value">00215#</td>
-                        <td class="file-name-value">Report for steel mill job</td>
-                        <td class="upload-date-value">10/02/2026</td>
-                        <td class="uploaded-by">Joe Bloggs</td>
-                        <td class="download">
-                            <a href="#">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 10.3335V13.4446C15 13.8572 14.8361 14.2528 14.5444 14.5446C14.2527 14.8363 13.857 15.0002 13.4444 15.0002H2.55556C2.143 15.0002 1.74733 14.8363 1.45561 14.5446C1.16389 14.2528 1 13.8572 1 13.4446V10.3335" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M4.11111 6.44434L8 10.3332L11.8889 6.44434" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M8 10.3333V1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
-                        </td>
-                    </tr>
+                    <?php foreach ($files as $file):
+                        $uploadedUser = User::find_by_id($file->user_id);
+                        $nameOfUploadedUser = $uploadedUser[0]->name;
+                    ?>
+                        <tr>
+                            <td class="file-num-value">00<?= $file->id ?? ''; ?>#</td>
+                            <td class="file-name-value"><?= $file->name_of_file ?? ''; ?></td>
+                            <td class="upload-date-value"><?= $file->upload_date ?? ''; ?></td>
+                            <td class="uploaded-by"><?= $nameOfUploadedUser ?? ''; ?></td>
+                            <td class="download">
+                                <a href="<?= $file->file_path ?? ''; ?>" download="<?= $file->filename ?? ''; ?>">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 10.3335V13.4446C15 13.8572 14.8361 14.2528 14.5444 14.5446C14.2527 14.8363 13.857 15.0002 13.4444 15.0002H2.55556C2.143 15.0002 1.74733 14.8363 1.45561 14.5446C1.16389 14.2528 1 13.8572 1 13.4446V10.3335" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M4.11111 6.44434L8 10.3332L11.8889 6.44434" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8 10.3333V1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>   
         </section>
@@ -264,19 +267,27 @@ var_dump($files);
             <div class="bottom">
                 <table>
                     <tbody>
-                        <tr>
-                            <td class="date-value">10/02/2026</td>
-                            <td class="history-item">
-                                <div class="user-cont">
-                                    <img src="resources/profile-pictures/pp.png">
-                                    <div class="name">Sean Connolly</div>
-                                </div>
-                                <div class="log-cont">
-                                    <p class="action">Downloaded file</p>
-                                    <a class="file" href="#">"Link to a file"</a>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php 
+                        $history_log = History::find_all();
+                        foreach ($history_log as $log_item):
+                            $user = User::find_by_id($log_item->user_id);
+                            $users_name = $user[0]->name;
+                            $user_pp = $user[0]->profile_picture ? "/resources/profile-pictures/" . $user[0]->profile_picture : "/resources/profile-pictures/placeholder.webp";
+                        ?>
+                            <tr>
+                                <td class="date-value"><?= $log_item->date ?? ''; ?></td>
+                                <td class="history-item">
+                                    <div class="user-cont">
+                                        <img src="<?= $user_pp ?? ''; ?>">
+                                        <div class="name"><?= $users_name ?? ''; ?></div>
+                                    </div>
+                                    <div class="log-cont">
+                                        <p class="action"><?= $log_item->action ?? ''; ?></p>
+                                        <a class="file" href="/resources/uploads/<?= $log_item->filename ?? ''; ?>" target="_blank">"<?= $log_item->filename ?? ''; ?>"</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>   
             </div>
