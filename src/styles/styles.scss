@@ -704,10 +704,12 @@ body {
         } // navigation-bar
 
         .page-content {
+            padding: 15px;
             @media screen and (min-width: $desktop) {
                 width: 100%;
                 padding: 51px 38px 18px 50px;
                 max-width: 1164px;
+                overflow: auto;
             }
 
             section.welcome-block {
@@ -777,6 +779,7 @@ body {
 
                 table {
                     border-spacing: 0 6px;
+                    width: 100%;
 
                     thead {
                         tr {
@@ -815,8 +818,8 @@ body {
                                 }
 
                                 &.file-name-value {
-                                    width: 532px;
-                                    min-width: 532px;
+                                    width: 510px;
+                                    min-width: 510px;
                                     border-left: solid 1px #0000001C;
                                     border-right: solid 1px #0000001C;
                                 }
@@ -839,6 +842,8 @@ body {
                                     border-radius: 0 4px 4px 0;
 
                                     a {
+                                        cursor: pointer;
+
                                         svg {
                                             width: 14px;
                                             height: 14px;
@@ -910,7 +915,7 @@ body {
                                     gap: 20px;
                                     align-items: center;
                                     justify-content: flex-start;
-                                    width: 857px;
+                                    width: 830px;
 
                                     .user-cont {
                                         display: flex;

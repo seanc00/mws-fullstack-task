@@ -677,11 +677,15 @@ body .dashboard-block .navigation-bar .mobile-dropdown-cont.closed .dropdown {
   opacity: 0;
   pointer-events: none;
 }
+body .dashboard-block .page-content {
+  padding: 15px;
+}
 @media screen and (min-width: 1200px) {
   body .dashboard-block .page-content {
     width: 100%;
     padding: 51px 38px 18px 50px;
     max-width: 1164px;
+    overflow: auto;
   }
 }
 body .dashboard-block .page-content section.welcome-block {
@@ -768,6 +772,7 @@ body .dashboard-block .page-content section.file-uploads {
 }
 body .dashboard-block .page-content section.file-uploads table {
   border-spacing: 0 6px;
+  width: 100%;
 }
 body .dashboard-block .page-content section.file-uploads table thead tr th {
   font-size: 15px;
@@ -797,8 +802,8 @@ body .dashboard-block .page-content section.file-uploads table tbody tr td.file-
   min-width: 110px;
 }
 body .dashboard-block .page-content section.file-uploads table tbody tr td.file-name-value {
-  width: 532px;
-  min-width: 532px;
+  width: 510px;
+  min-width: 510px;
   border-left: solid 1px rgba(0, 0, 0, 0.1098039216);
   border-right: solid 1px rgba(0, 0, 0, 0.1098039216);
 }
@@ -816,6 +821,9 @@ body .dashboard-block .page-content section.file-uploads table tbody tr td.downl
   max-height: 56px;
   background-color: #0266FF;
   border-radius: 0 4px 4px 0;
+}
+body .dashboard-block .page-content section.file-uploads table tbody tr td.download a {
+  cursor: pointer;
 }
 body .dashboard-block .page-content section.file-uploads table tbody tr td.download a svg {
   width: 14px;
@@ -875,7 +883,7 @@ body .dashboard-block .page-content section.history .bottom table tr td.history-
   gap: 20px;
   align-items: center;
   justify-content: flex-start;
-  width: 857px;
+  width: 830px;
 }
 body .dashboard-block .page-content section.history .bottom table tr td.history-item .user-cont {
   display: flex;
