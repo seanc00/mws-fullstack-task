@@ -55,4 +55,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Validate form
+    function validateForm() {
+        const nameField = document.forms["uploadForm"]["document_name"].value;
+        const nameFieldInput = document.getElementById('document_name');
+
+        if (nameField == "") {
+            alert("Document name field is empty.");
+            nameFieldInput.style.borderColor = 'red';
+        }
+    }
 });
