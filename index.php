@@ -12,6 +12,8 @@ $users_name = $user[0]->name;
 
 // Get files
 $files = Upload::find_all();
+
+var_dump($files);
 ?>
 
 <div class="dashboard-block">
@@ -172,7 +174,7 @@ $files = Upload::find_all();
                 <p>Manage & download your documents below</p>
             </div>
             <div class="btn-cont">
-                <a href="#">
+                <a href="#" id="uploadFileBtn">
                     Upload File
                     <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13 9V11.6667C13 12.0203 12.8595 12.3594 12.6095 12.6095C12.3594 12.8595 12.0203 13 11.6667 13H2.33333C1.97971 13 1.64057 12.8595 1.39052 12.6095C1.14048 12.3594 1 12.0203 1 11.6667V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -180,6 +182,37 @@ $files = Upload::find_all();
                         <path d="M7 1V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
+
+                <div class="modal">
+                    <div class="inner">
+                        <div class="top-cont">
+                            <div class="text-wrap">
+                                <h3 class="title">Upload File</h3>
+                                <p>Add your file below and add a file</p>
+                            </div>
+                            <div class="upload-close-btn">
+                                <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="50" height="50" rx="25" fill="#0266FF" fill-opacity="0.1"/>
+                                    <path d="M18 18L32 32M32 18L18 32" stroke="#0266FF" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <form action="">
+                            <div class="form-group upload-file">
+                                <label for="add_document">Select Document</label>
+                                <input id="add_document" type="file" name="add_document" placeholder="Add Document">
+                            </div>
+                            <div class="form-group document-name">
+                                <label for="document_name">Document Name</label>
+                                <input id="document_name" type="text" name="document_name" placeholder="Add Document Name">
+                            </div>
+                            <div class="form-group submit">
+                                <input type="submit" name="submit" value="Save">
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
 

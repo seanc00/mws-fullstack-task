@@ -36,4 +36,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // upload File Modal Popup Functionality
+    if (document.querySelector('.upload-close-btn') && document.getElementById('uploadFileBtn')) {
+        const closeModalBtn =  document.querySelector('.upload-close-btn');
+        const openModalBtn = document.getElementById('uploadFileBtn');
+        const modalPopup = document.querySelector('.modal');
+
+        openModalBtn.addEventListener('click', () => {
+            if (!modalPopup.classList.contains('open')) {
+                modalPopup.classList.add('open');
+            }
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            if (modalPopup.classList.contains('open')) {
+                modalPopup.classList.remove('open');
+            }
+        });
+    }
 });

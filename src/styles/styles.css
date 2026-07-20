@@ -722,6 +722,9 @@ body .dashboard-block .page-content section.welcome-block .text-cont p {
     font-size: 15px;
   }
 }
+body .dashboard-block .page-content section.welcome-block .btn-cont {
+  position: relative;
+}
 body .dashboard-block .page-content section.welcome-block .btn-cont a {
   display: flex;
   max-width: fit-content;
@@ -763,6 +766,143 @@ body .dashboard-block .page-content section.welcome-block .btn-cont a svg {
     width: 12px;
     height: 12px;
   }
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  transform: translateY(-100%);
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 965px;
+  min-height: 237px;
+  padding: 26px 32px;
+  -webkit-box-shadow: 4px 4px 10px -2px rgba(0, 0, 0, 0.57);
+  box-shadow: 4px 4px 10px -2px rgba(0, 0, 0, 0.57);
+  background-color: #fff;
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner .top-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 31px;
+}
+@media screen and (min-width: 1200px) {
+  body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner .top-cont {
+    margin-bottom: 52px;
+  }
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner .top-cont .text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner .top-cont .text-wrap h3 {
+  font-weight: 600;
+  font-size: 20px;
+}
+@media screen and (min-width: 1200px) {
+  body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner .top-cont .text-wrap h3 {
+    font-size: 24px;
+  }
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner .top-cont .text-wrap p {
+  font-size: 13px;
+  color: #4D616E;
+}
+@media screen and (min-width: 1200px) {
+  body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner .top-cont .text-wrap p {
+    font-size: 15px;
+  }
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner .top-cont .upload-close-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+@media screen and (min-width: 1200px) {
+  body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner .top-cont .upload-close-btn {
+    width: 50px;
+    height: 50px;
+  }
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner .top-cont .upload-close-btn svg {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 1200px) {
+  body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form {
+    display: grid;
+    grid-template-columns: 44fr 49fr 7fr;
+    gap: 30px;
+    align-items: flex-end;
+    justify-content: center;
+  }
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+@media screen and (min-width: 1200px) {
+  body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form .form-group {
+    gap: 6px;
+  }
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form .form-group label {
+  font-size: 13px;
+  color: #3f3f3f;
+}
+@media screen and (min-width: 1200px) {
+  body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form .form-group label {
+    font-size: 15px;
+  }
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form .form-group.upload-file input {
+  background: #F4F5F4;
+  display: flex;
+  align-items: center;
+  padding: 13px;
+  border-radius: 2px;
+  height: 48px;
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form .form-group.document-name input {
+  padding: 15px;
+  border: none;
+  background-color: #F4F5F4;
+  border-radius: 3px;
+  height: 48px;
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form .form-group.submit input {
+  background-color: #0266FF;
+  height: 48px;
+  border-radius: 42px;
+  font-size: 13px;
+  color: #fff;
+  border: none;
+  padding: 16px 27px;
+  font-weight: 700;
+}
+@media screen and (min-width: 1200px) {
+  body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form .form-group.submit input {
+    font-size: 15px;
+  }
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
 }
 body .dashboard-block .page-content section.file-uploads {
   max-width: 1076px;
