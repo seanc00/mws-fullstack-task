@@ -8,13 +8,13 @@ class History extends Db_query {
     public $user_id;
     public $action;
     public $filename;
-    public $type;
+    public $name_of_file;
 
     protected static $db_table_fields = [
         "date",
         "user_id",
         "action",
         "filename",
-        "type"
+        "name_of_file"
     ];
 }

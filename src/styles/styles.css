@@ -776,7 +776,19 @@ body .dashboard-block .page-content section.welcome-block .btn-cont .modal {
   position: absolute;
   right: 0;
   top: 0;
-  width: 965px;
+  width: 100%;
+}
+@media screen and (min-width: 1200px) {
+  body .dashboard-block .page-content section.welcome-block .btn-cont .modal {
+    width: 800px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  body .dashboard-block .page-content section.welcome-block .btn-cont .modal {
+    width: 965px;
+  }
+}
+body .dashboard-block .page-content section.welcome-block .btn-cont .modal {
   min-height: 237px;
   padding: 26px 32px;
   -webkit-box-shadow: 4px 4px 10px -2px rgba(0, 0, 0, 0.57);
@@ -838,13 +850,13 @@ body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inne
 }
 body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form {
   display: flex;
+  gap: 30px;
   flex-direction: column;
 }
 @media screen and (min-width: 1200px) {
   body .dashboard-block .page-content section.welcome-block .btn-cont .modal .inner form {
     display: grid;
     grid-template-columns: 44fr 49fr 7fr;
-    gap: 30px;
     align-items: flex-end;
     justify-content: center;
   }
@@ -935,11 +947,19 @@ body .dashboard-block .page-content section.file-uploads table tbody tr {
 body .dashboard-block .page-content section.file-uploads table tbody tr td {
   background-color: #F2F3F8;
   padding: 19px 24px;
+  font-size: 13px;
+}
+@media screen and (min-width: 1200px) {
+  body .dashboard-block .page-content section.file-uploads table tbody tr td {
+    font-size: 15px;
+  }
 }
 body .dashboard-block .page-content section.file-uploads table tbody tr td.file-num-value {
   border-radius: 4px 0 0 4px;
   width: 110px;
   min-width: 110px;
+  color: #0266FF;
+  font-weight: 600;
 }
 body .dashboard-block .page-content section.file-uploads table tbody tr td.file-name-value {
   width: 510px;
@@ -951,10 +971,11 @@ body .dashboard-block .page-content section.file-uploads table tbody tr td.uploa
   border-right: solid 1px rgba(0, 0, 0, 0.1098039216);
   width: 160px;
   min-width: 160px;
+  text-align: center;
 }
 body .dashboard-block .page-content section.file-uploads table tbody tr td.uploaded-by {
-  width: 216px;
-  min-width: 216px;
+  width: 235px;
+  min-width: 235px;
 }
 body .dashboard-block .page-content section.file-uploads table tbody tr td.download {
   max-width: 58px;
@@ -962,10 +983,12 @@ body .dashboard-block .page-content section.file-uploads table tbody tr td.downl
   background-color: #0266FF;
   border-radius: 0 4px 4px 0;
 }
-body .dashboard-block .page-content section.file-uploads table tbody tr td.download a {
+body .dashboard-block .page-content section.file-uploads table tbody tr td.download button {
   cursor: pointer;
+  background: none;
+  border: none;
 }
-body .dashboard-block .page-content section.file-uploads table tbody tr td.download a svg {
+body .dashboard-block .page-content section.file-uploads table tbody tr td.download button svg {
   width: 14px;
   height: 14px;
   color: #fff;
@@ -999,12 +1022,17 @@ body .dashboard-block .page-content section.history .top .subtitle p {
   color: #4D616E;
 }
 body .dashboard-block .page-content section.history .bottom {
-  max-width: 978px;
   max-height: 230px;
   overflow: auto;
 }
 body .dashboard-block .page-content section.history .bottom table {
   border-spacing: 0 6px;
+}
+@media screen and (max-width: 1200px) {
+  body .dashboard-block .page-content section.history .bottom table tr {
+    display: flex;
+    flex-direction: column;
+  }
 }
 body .dashboard-block .page-content section.history .bottom table tr td {
   padding: 14px 20px;
